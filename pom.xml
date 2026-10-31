@@ -10,5 +10,8 @@
 
 	<modules>
 		<module>demo-web</module>
+		<module>demo-jpa</module>
+		<module>demo-chain</module>
+		<module>flyway-silent</module>
 	</modules>
 </project>

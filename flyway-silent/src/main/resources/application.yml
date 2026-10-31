@@ -1,0 +1,9 @@
+spring:
+  main:
+    web-application-type: none
+  datasource:
+    url: jdbc:postgresql://localhost:5432/tokoku
+    username: postgres
+    password: postgres
+  flyway:
+    schemas: flywaydemo

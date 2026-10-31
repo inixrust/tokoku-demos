@@ -1,0 +1,57 @@
+# Butuh PostgreSQL dan Kafka TokoKu: docker compose -f ..\tokoku-lab\infra\compose.yaml --profile db --profile kafka up -d
+spring:
+  application:
+    name: demo-jpa
+  datasource:
+    url: jdbc:postgresql://localhost:5432/tokoku?currentSchema=demo
+    username: postgres
+    password: postgres
+  flyway:
+    schemas: demo
+  jpa:
+    open-in-view: false
+    properties:
+      hibernate.generate_statistics: true
+      hibernate.jdbc.batch_size: 50
+      hibernate.order_inserts: true
+      hibernate.query.fail_on_pagination_over_collection_fetch: true
+  kafka:
+    bootstrap-servers: localhost:9092
+
+server:
+  port: 8095
+
+management:
+  endpoints:
+    web:
+      exposure:
+        include: health, metrics
+
+logging:
+  level:
+    org.hibernate.session.metrics: debug
+
+demo:
+  instance: ${server.port}
+  # D7.2: relay aktif hanya bila diminta (dua instance pada port berbeda).
+  relay-enabled: false
+
+---
+# D6.1: OSIV aktif (default Boot bila property tidak ditulis). Lihat SQL yang jalan di luar transaction.
+spring:
+  config:
+    activate:
+      on-profile: osiv
+  jpa:
+    open-in-view: true
+    show-sql: true
+
+---
+# D14.1: virtual thread on, pool 10. Tambahkan --server.tomcat.threads.max=400 untuk menunjukkan tidak membantu.
+spring:
+  config:
+    activate:
+      on-profile: vt
+  threads:
+    virtual:
+      enabled: true

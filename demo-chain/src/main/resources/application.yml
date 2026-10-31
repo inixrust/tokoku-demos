@@ -1,0 +1,17 @@
+spring:
+  application:
+    name: demo-chain
+  http:
+    clients:
+      connect-timeout: 1s
+      read-timeout: 5s
+
+management:
+  endpoints:
+    web:
+      exposure:
+        include: health
+
+hop:
+  name: A
+  downstream: none
