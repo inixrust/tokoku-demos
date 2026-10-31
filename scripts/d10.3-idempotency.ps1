@@ -8,7 +8,7 @@
 #>
 $ErrorActionPreference = 'Continue'
 Import-Module (Join-Path $PSScriptRoot 'tokoku.psm1') -Force
-$token = try { Get-Token @('-ClientCredentials') } catch { 'none' }
+$token = try { Get-Token @{ ClientCredentials = $true } } catch { 'none' }
 $key = "demo-$(Get-Random)"
 
 function Pay([string]$k, [string]$body) {

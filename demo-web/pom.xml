@@ -41,6 +41,12 @@
 			<groupId>com.github.ben-manes.caffeine</groupId>
 			<artifactId>caffeine</artifactId>
 		</dependency>
+		<!-- Modul 4 (rencana 1.1): OpenAPI hasil generate di /v3/api-docs. springdoc 3.x dibangun untuk Boot 4.1. -->
+		<dependency>
+			<groupId>org.springdoc</groupId>
+			<artifactId>springdoc-openapi-starter-webmvc-api</artifactId>
+			<version>3.2.0</version>
+		</dependency>
 		<!-- D4.2: Page / PagedModel + resolusi Pageable. -->
 		<dependency>
 			<groupId>org.springframework.boot</groupId>

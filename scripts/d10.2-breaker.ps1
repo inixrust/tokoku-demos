@@ -8,7 +8,7 @@
 $ErrorActionPreference = 'Continue'
 Import-Module (Join-Path $PSScriptRoot 'tokoku.psm1') -Force
 $chaos = Get-LabPath 'scripts\chaos.ps1'
-$alice = Get-Token @('-User', 'alice')
+$alice = Get-Token @{ User = 'alice' }
 
 function State {
     $line = (curl.exe -s http://localhost:9082/actuator/prometheus) -split "`n" |

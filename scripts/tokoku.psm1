@@ -3,7 +3,8 @@ $script:Lab = (Resolve-Path (Join-Path $PSScriptRoot '..\..\tokoku-lab')).Path
 
 function Get-LabPath([string]$relative) { Join-Path $script:Lab $relative }
 
-function Get-Token([string[]]$TokenArgs) {
+# Contoh: Get-Token @{ User = 'alice' }   atau   Get-Token @{ ClientCredentials = $true }
+function Get-Token([hashtable]$TokenArgs) {
     $script = Get-LabPath 'scripts\get-token.ps1'
     (& $script @TokenArgs | Select-Object -Last 1).Trim()
 }
