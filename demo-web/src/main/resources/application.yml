@@ -1,0 +1,51 @@
+spring:
+  application:
+    name: demo-web
+  config:
+    # D9.2: nilai dari folder yang di-mount (nama file = nama property). Lokal: --demo.config-dir=./config/
+    import: "optional:configtree:${demo.config-dir:/etc/config/}"
+  http:
+    clients:
+      # D8.1: hanya berlaku untuk builder yang di-inject Spring, TIDAK untuk RestClient.create().
+      connect-timeout: 2s
+      read-timeout: 2s
+  cache:
+    type: caffeine
+    cache-names: products
+    caffeine.spec: maximumSize=1000,expireAfterWrite=5s
+
+server:
+  port: 8090
+  # D14.2: graceful shutdown (default Boot). Bandingkan dengan --spring.lifecycle.timeout-per-shutdown-phase=5s
+  shutdown: graceful
+
+management:
+  endpoints:
+    web:
+      exposure:
+        include: health, info
+
+demo:
+  # D9.2: file /etc/config/db-password (lihat scripts/d9.2-configtree.ps1).
+  db-password: ${db-password:<tidak ada>}
+
+---
+# D5.2: konfigurasi yang SALAH (sering ditemui): detail error dan stack trace dikirim ke client.
+spring:
+  config:
+    activate:
+      on-profile: leaky
+server:
+  error:
+    include-message: always
+    include-stacktrace: always
+    include-exception: true
+
+---
+# D17.1: refreshAfterWrite di spec tanpa bean CacheLoader -> aplikasi gagal start.
+spring:
+  config:
+    activate:
+      on-profile: refresh-no-loader
+  cache:
+    caffeine.spec: maximumSize=1000,refreshAfterWrite=5s
