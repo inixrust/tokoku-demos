@@ -35,11 +35,12 @@ spring:
   config:
     activate:
       on-profile: leaky
-server:
-  error:
-    include-message: always
-    include-stacktrace: always
-    include-exception: true
+  # Boot 4.1: property error berpindah ke spring.web.error.* (server.error.include-* diabaikan).
+  web:
+    error:
+      include-message: always
+      include-stacktrace: always
+      include-exception: true
 
 ---
 # D17.1: refreshAfterWrite di spec tanpa bean CacheLoader -> aplikasi gagal start.

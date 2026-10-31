@@ -73,7 +73,7 @@ D13.1 & D13.3 → L13.1, D21.2 → L21.1.
 
 | ID | Slide | Cara menjalankan | Momen kunci |
 |---|---|---|---|
-| D10.2 | 78, 81 | tokoku-lab ≥ `L10.1-solution` (mode dev) → `scripts\d10.2-breaker.ps1` + dashboard Resilience | CLOSED → OPEN (fail fast) → HALF_OPEN → CLOSED |
+| D10.2 | 78, 81 | tokoku-lab ≥ `L11.1-solution` (mode dev, profil `security`; skrip memakai token alice dan order tanpa `customerId`) → `scripts\d10.2-breaker.ps1` + dashboard Resilience | CLOSED → OPEN (fail fast) → HALF_OPEN → CLOSED |
 | D10.3 | 80 | order-service dengan `--tokoku.payments.gateway-delay=500ms` → `scripts\d10.3-idempotency.ps1` | Key sama → replay · payload beda → 422 · 5 paralel → 201 + 4× 409, satu payment |
 | D11.1 | 86–88 | `scripts\d11-tokens.ps1` | Token alice (PKCE) vs `tokoku-loadtest`: `sub`, `aud`, `scope`, `exp` |
 | D11.3 | 88 | `scripts\d11-tokens.ps1` (bagian akhir) | Token `aud=inventory-service` → 401 |
