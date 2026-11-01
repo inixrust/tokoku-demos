@@ -3,6 +3,7 @@
   D0 (slide 3): tur TokoKu versi final. Place order -> event Kafka -> reservasi stok + notifikasi -> SATU trace di Grafana.
 .DESCRIPTION
   Prasyarat: tokoku-lab di tag "final", mode perf menyala:
+    git -C ..\tokoku-lab fetch --tags      (repo peserta: tag final dirilis di akhir kelas)
     git -C ..\tokoku-lab checkout final
     (di tokoku-lab) .\mvnw.cmd package -DskipTests
     docker compose -f infra/compose.yaml --profile db --profile kafka --profile obs --profile security --profile apps up -d --build --wait

@@ -2,8 +2,8 @@
 .SYNOPSIS
   D10.2 (slide 78, 81): Toxiproxy mematikan inventory -> breaker OPEN (fail fast) -> HALF_OPEN -> CLOSED.
 .DESCRIPTION
-  Prasyarat: tokoku-lab L10.1-solution atau sesudahnya, mode dev (order-service di IDE, base-url localhost:18083),
-  profil chaos menyala. Buka dashboard Grafana "TokoKu - Resilience" di layar.
+  Prasyarat: tokoku-lab L11.1-solution atau sesudahnya (skrip memakai token alice), mode dev (order-service di IDE,
+  base-url localhost:18083), profil chaos dan security menyala. Buka dashboard Grafana "TokoKu - Resilience" di layar.
 #>
 $ErrorActionPreference = 'Continue'
 Import-Module (Join-Path $PSScriptRoot 'tokoku.psm1') -Force
