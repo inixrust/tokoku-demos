@@ -1,6 +1,6 @@
 <#
 .SYNOPSIS
-  D12.2 (slide 108): JFR (hot method, alokasi), thread dump JSON, heap dump leak.
+  D12.2 (slide 109): JFR (hot method, alokasi), thread dump JSON, heap dump leak.
 .DESCRIPTION
   Menjalankan demo-web di container (base -jdk), memberi beban CPU + leak, lalu mengambil:
     out\d122.jfr        -> buka di JDK Mission Control: Method Profiling (DiagnosticsController.hot), Allocation

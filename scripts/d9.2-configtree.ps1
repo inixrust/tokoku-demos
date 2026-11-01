@@ -1,6 +1,6 @@
 <#
 .SYNOPSIS
-  D9.2 (slide 68): secret dibaca dari folder yang di-mount (config tree), tidak ada di repo maupun di image.
+  D9.2 (slide 72): secret dibaca dari folder yang di-mount (config tree), tidak ada di repo maupun di image.
 .DESCRIPTION
   1. Tanpa mount: /d92/secret -> terbaca=false.
   2. Dengan -v <folder>:/etc/config (file db-password): terbaca=true, nilai tidak pernah dicetak utuh.

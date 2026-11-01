@@ -7,7 +7,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
 /**
- * D14.2 (slide 124-125): request panjang saat shutdown. Lihat scripts/d14.2-graceful.ps1.
+ * D14.2 (slide 125-126): request panjang saat shutdown. Lihat scripts/d14.2-graceful.ps1.
  * Graceful shutdown (default Boot): request yang sedang berjalan diselesaikan, request baru ditolak.
  */
 @RestController

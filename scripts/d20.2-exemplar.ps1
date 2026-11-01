@@ -1,6 +1,6 @@
 <#
 .SYNOPSIS
-  D20.2 (slide 150-152): metric -> exemplar -> trace -> log, untuk POST /api/orders yang paling lambat.
+  D20.2 (slide 147-150): metric -> exemplar -> trace -> log, untuk POST /api/orders yang paling lambat.
 .DESCRIPTION
   Prasyarat: tokoku-lab mode perf dengan observability (tag "final" atau branch capstone/broken) + beban beberapa
   menit (mis. wrk2 POST /api/orders). Di Grafana: dashboard Golden Signals > panel p99 per endpoint > titik exemplar.

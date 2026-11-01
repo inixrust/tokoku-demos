@@ -1,6 +1,6 @@
 <#
 .SYNOPSIS
-  D11.1 dan D11.3 (slide 86-88): token user (PKCE) vs token service (client credentials), decode lokal;
+  D11.1 dan D11.3 (slide 87-89): token user (PKCE) vs token service (client credentials), decode lokal;
   token untuk API lain (aud bukan order-service) ditolak 401.
 .DESCRIPTION
   Prasyarat: profil security (Keycloak) dan order-service L11.1-solution atau sesudahnya.

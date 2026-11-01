@@ -1,6 +1,6 @@
 <#
 .SYNOPSIS
-  D7.4 (slide 58): EXPLAIN (ANALYZE) untuk urutan kolom composite index, pada data perf TokoKu (seed-perf.ps1).
+  D7.4 (slide 64): EXPLAIN (ANALYZE) untuk urutan kolom composite index, pada data perf TokoKu (seed-perf.ps1).
 .DESCRIPTION
   Di dalam satu transaction yang di-ROLLBACK (DDL PostgreSQL transactional): data asli tidak berubah.
   a. index (status, customer_id)                   -> leftmost column tidak cocok dengan pola query

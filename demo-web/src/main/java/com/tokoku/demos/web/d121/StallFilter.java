@@ -13,7 +13,7 @@ import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.filter.OncePerRequestFilter;
 
 /**
- * D12.1 (slide 105-107): aplikasi "stall" 2 s setiap 10 s (seperti GC pause). Semua request ke /d121/** yang
+ * D12.1 (slide 106-108): aplikasi "stall" 2 s setiap 10 s (seperti GC pause). Semua request ke /d121/** yang
  * datang di jendela stall menunggu sampai jendela berakhir.
  * <pre>
  * .\loadtest\wrk2\run.ps1 -Closed -Duration 60s -Connections 100 -Url http://host.docker.internal:8090/d121/fast        # wrk (closed)

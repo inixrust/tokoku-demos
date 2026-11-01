@@ -12,7 +12,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 /**
- * D17.1 (slide 142-143): loader lambat 500 ms, TTL 5 s.
+ * D17.1 (slide 143-144): loader lambat 500 ms, TTL 5 s.
  * <pre>
  * .\loadtest\wrk2\run.ps1 -Rate 100 -Duration 60s -Url http://host.docker.internal:8090/d171/expire/1    # lonjakan p99 tiap 5 s
  * .\loadtest\wrk2\run.ps1 -Rate 100 -Duration 60s -Url http://host.docker.internal:8090/d171/refresh/1   # lonjakan hilang

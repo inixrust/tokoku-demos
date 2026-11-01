@@ -1,6 +1,6 @@
 <#
 .SYNOPSIS
-  D7.1 (slide 52): dual write + crash -> event hilang; outbox + crash -> event tetap terkirim setelah restart.
+  D7.1 (slide 58): dual write + crash -> event hilang; outbox + crash -> event tetap terkirim setelah restart.
   Butuh profil db + kafka TokoKu dan demo-jpa sudah di-build.
 #>
 $ErrorActionPreference = 'Continue'

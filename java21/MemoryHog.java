@@ -2,7 +2,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 /*
- * D13.2 (slide 117): heap vs memory limit container. Menahan 10 MiB per 100 ms sampai habis.
+ * D13.2 (slide 118): heap vs memory limit container. Menahan 10 MiB per 100 ms sampai habis.
  * Jalankan lewat scripts/d13.2-oom.ps1:
  *   a. -Xmx1g di limit 1 GiB         -> kernel membunuh container: OOMKilled=true, exit 137, tanpa pesan Java
  *   b. MaxRAMPercentage=70 + ExitOnOutOfMemoryError -> JVM keluar bersih dengan pesan OutOfMemoryError, exit 3

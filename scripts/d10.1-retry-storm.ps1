@@ -1,6 +1,6 @@
 <#
 .SYNOPSIS
-  D10.1 (slide 77): retry 3 attempt di SETIAP layer, dependency paling bawah selalu gagal.
+  D10.1 (slide 78): retry 3 attempt di SETIAP layer, dependency paling bawah selalu gagal.
   Satu request user -> 3 x 3 x 3 = 27 call ke dependency. Bandingkan: retry hanya di satu layer = 3 call.
   (Slide memakai gateway sebagai ilustrasi; TokoKu tidak punya gateway, jadi di sini tiga aplikasi A -> B -> C.)
 #>

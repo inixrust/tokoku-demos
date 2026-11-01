@@ -11,7 +11,7 @@ import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.filter.ShallowEtagHeaderFilter;
 
 /**
- * D16.2 (slide 139): ETag + If-None-Match.
+ * D16.2 (slide 140): ETag + If-None-Match.
  * <pre>
  * curl.exe -s -i localhost:8090/d162/products/1                          # 200 + header ETag: "0a1b..."
  * curl.exe -s -i -H 'If-None-Match: "0a1b..."' localhost:8090/d162/products/1   # 304 tanpa body

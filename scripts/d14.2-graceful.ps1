@@ -1,6 +1,6 @@
 <#
 .SYNOPSIS
-  D14.2 (slide 124-125): graceful shutdown dengan request 20 s yang sedang berjalan.
+  D14.2 (slide 125-126): graceful shutdown dengan request 20 s yang sedang berjalan.
 .DESCRIPTION
   a. docker stop -t 40, timeout shutdown Spring 30 s (default)  -> request selesai bersih
   b. docker stop -t 40, timeout-per-shutdown-phase=5s           -> request terpotong setelah 5 s

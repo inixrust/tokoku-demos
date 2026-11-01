@@ -33,7 +33,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
 /**
- * D7.1 (slide 52) dan D7.2 (slide 54). Lihat scripts/d7.1-dual-write.ps1 dan scripts/d7.2-skip-locked.ps1.
+ * D7.1 (slide 58) dan D7.2 (slide 60). Lihat scripts/d7.1-dual-write.ps1 dan scripts/d7.2-skip-locked.ps1.
  * <ul>
  * <li>POST /d71/dual?crash=true: order di-commit, lalu proses "crash" sebelum publish ke Kafka. Event hilang.</li>
  * <li>POST /d71/outbox?crash=true: order + baris outbox di-commit bersama, lalu crash. Setelah restart dengan relay

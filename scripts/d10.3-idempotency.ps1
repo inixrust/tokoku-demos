@@ -1,6 +1,6 @@
 <#
 .SYNOPSIS
-  D10.3 (slide 80): POST /api/payments dengan Idempotency-Key.
+  D10.3 (slide 81): POST /api/payments dengan Idempotency-Key.
 .DESCRIPTION
   Prasyarat: tokoku-lab L10.1-solution atau sesudahnya. Agar request paralel benar-benar tumpang tindih, jalankan
   order-service dengan --tokoku.payments.gateway-delay=500ms (IDE: program argument).

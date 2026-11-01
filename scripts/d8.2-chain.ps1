@@ -1,6 +1,6 @@
 <#
 .SYNOPSIS
-  D8.2 (slide 12): rantai synchronous 3 hop, masing-masing 200 ms. Latency menjumlah; satu hop mati = semua gagal.
+  D8.2 (slide 53): rantai synchronous 3 hop, masing-masing 200 ms. Latency menjumlah; satu hop mati = semua gagal.
 #>
 $ErrorActionPreference = 'Continue'
 Import-Module (Join-Path $PSScriptRoot 'chain.psm1') -Force

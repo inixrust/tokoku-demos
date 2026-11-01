@@ -1,6 +1,6 @@
 <#
 .SYNOPSIS
-  D19.1 (slide 95-99): waktu jalan slice test (@WebMvcTest) vs @SpringBootTest di order-service tokoku-lab.
+  D19.1 (slide 96-100): waktu jalan slice test (@WebMvcTest) vs @SpringBootTest di order-service tokoku-lab.
 .DESCRIPTION
   Prasyarat: tokoku-lab L19.1-solution atau sesudahnya; profil db + kafka menyala (OrderServiceApplicationTests
   memuat seluruh context).

@@ -1,6 +1,6 @@
 <#
 .SYNOPSIS
-  D7.2 (slide 54): dua instance relay + FOR UPDATE SKIP LOCKED -> batch berbeda, tanpa duplikat.
+  D7.2 (slide 60): dua instance relay + FOR UPDATE SKIP LOCKED -> batch berbeda, tanpa duplikat.
 #>
 $ErrorActionPreference = 'Continue'
 Import-Module (Join-Path $PSScriptRoot 'demo-jpa.psm1') -Force

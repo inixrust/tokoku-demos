@@ -14,7 +14,7 @@ import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.client.RestClient;
 
 /**
- * D16.1 (slide 137-138): tiga call downstream masing-masing 300 ms.
+ * D16.1 (slide 138-139): tiga call downstream masing-masing 300 ms.
  * <pre>
  * curl.exe -s localhost:8090/d161/sequential   # ±900 ms
  * curl.exe -s localhost:8090/d161/parallel     # ±300 ms (virtual thread per call)

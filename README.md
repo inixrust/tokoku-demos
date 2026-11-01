@@ -28,7 +28,7 @@ wrk2/wrk: `..\tokoku-lab\loadtest\wrk2\run.ps1`.
 ## Indeks demo
 
 Demo yang isinya sama dengan langkah lab sudah dipindah ke lab (rencana §7): D3.3 → L3.1, D7.3 → L7.1, D11.2 → L11.1,
-D13.1 & D13.3 → L13.1, D21.2 → L21.1.
+D13.1 & D13.3 → L13.1, D21.2 → L21.1. Kolom **Slide** mengacu ke nomor slide deck instruktur v5.
 
 ### Hari 1
 
@@ -54,31 +54,31 @@ D13.1 & D13.3 → L13.1, D21.2 → L21.1.
 | D6.1 | 45 | demo-jpa `/d61/orders/1`: profil `osiv` vs default; `/d61/orders/1/fixed` | OSIV: query lazy di luar transaction · tanpa OSIV: `LazyInitializationException` · fix: `@EntityGraph` |
 | D6.2 | 43, 47 | demo-jpa `POST /d62/identity?n=1000` vs `/d62/sequence?n=1000` | IDENTITY: 1000 statement, 0 batch, 370 ms · SEQUENCE: 22 statement, 20 batch, 42 ms |
 | D6.3 | 43 | demo-jpa `POST /d63/race?versioned=false` / `true` | tanpa `@Version`: saldo 1100 (lost update) · dengan: satu 409 |
-| D8.1 | 63 | demo-web: `/d81/builder` vs `/d81/create` | builder Spring: gagal 2 s (timeout global) · `RestClient.create()`: menggantung 30 s |
-| D8.2 | 12 | `scripts\d8.2-chain.ps1` | 3 hop × 200 ms = ±650 ms · hop C mati → A ikut gagal (502) |
+| D8.1 | 51 | demo-web: `/d81/builder` vs `/d81/create` | builder Spring: gagal 2 s (timeout global) · `RestClient.create()`: menggantung 30 s |
+| D8.2 | 53 | `scripts\d8.2-chain.ps1` | 3 hop × 200 ms = ±650 ms · hop C mati → A ikut gagal (502) |
 
 ### Hari 3
 
 | ID | Slide | Cara menjalankan | Momen kunci |
 |---|---|---|---|
-| D7.1 | 52 | `scripts\d7.1-dual-write.ps1` | Dual write + crash: order tanpa event · outbox + crash: event terkirim setelah restart |
-| D7.2 | 54 | `scripts\d7.2-skip-locked.ps1` | Dua relay mengambil batch berbeda (382–401 / 402–421 …), 500 event, 0 duplikat |
-| D7.4 | 58 | data perf TokoKu → `scripts\d7.4-explain.ps1` | `(status, customer_id)`: bitmap scan + sort 3,5 ms · `(customer_id, status, created_at desc)`: index scan 0,04 ms |
-| D20.1 | 70–71 | tokoku-lab ≥ `L8.1B-start`, Grafana **TokoKu - Golden Signals** | Latency (percentile), traffic, error, saturation per service |
-| D9.1 | 66–67 | tokoku-lab branch `homework/L9.1` (lihat `docs/labs/L9.1.md`) | 2 instance di Eureka, round-robin; satu mati → 503 ±12 s lalu pulih |
-| D9.2 | 68 | `scripts\d9.2-configtree.ps1` | Tanpa mount: tidak terbaca · dengan `/etc/config/db-password`: terbaca, tidak pernah dicetak utuh |
-| D10.1 | 77 | `scripts\d10.1-retry-storm.ps1` | Retry 3 di setiap layer: **27 call** ke dependency · satu layer: 3 |
+| D7.1 | 58 | `scripts\d7.1-dual-write.ps1` | Dual write + crash: order tanpa event · outbox + crash: event terkirim setelah restart |
+| D7.2 | 60 | `scripts\d7.2-skip-locked.ps1` | Dua relay mengambil batch berbeda (382–401 / 402–421 …), 500 event, 0 duplikat |
+| D7.4 | 64 | data perf TokoKu → `scripts\d7.4-explain.ps1` | `(status, customer_id)`: bitmap scan + sort 3,5 ms · `(customer_id, status, created_at desc)`: index scan 0,04 ms |
+| D20.1 | 67–68 | tokoku-lab ≥ `L8.1B-start`, Grafana **TokoKu - Golden Signals** | Latency (percentile), traffic, error, saturation per service |
+| D9.1 | 70–71 | tokoku-lab branch `homework/L9.1` (lihat `docs/labs/L9.1.md`) | 2 instance di Eureka, round-robin; satu mati → 503 ±12 s lalu pulih |
+| D9.2 | 72 | `scripts\d9.2-configtree.ps1` | Tanpa mount: tidak terbaca · dengan `/etc/config/db-password`: terbaca, tidak pernah dicetak utuh |
+| D10.1 | 78 | `scripts\d10.1-retry-storm.ps1` | Retry 3 di setiap layer: **27 call** ke dependency · satu layer: 3 |
 
 ### Hari 4
 
 | ID | Slide | Cara menjalankan | Momen kunci |
 |---|---|---|---|
-| D10.2 | 78, 81 | tokoku-lab ≥ `L11.1-solution` (mode dev, profil `security`; skrip memakai token alice dan order tanpa `customerId`) → `scripts\d10.2-breaker.ps1` + dashboard Resilience | CLOSED → OPEN (fail fast) → HALF_OPEN → CLOSED |
-| D10.3 | 80 | order-service dengan `--tokoku.payments.gateway-delay=500ms` → `scripts\d10.3-idempotency.ps1` | Key sama → replay · payload beda → 422 · 5 paralel → 201 + 4× 409, satu payment |
-| D11.1 | 86–88 | `scripts\d11-tokens.ps1` | Token alice (PKCE) vs `tokoku-loadtest`: `sub`, `aud`, `scope`, `exp` |
-| D11.3 | 88 | `scripts\d11-tokens.ps1` (bagian akhir) | Token `aud=inventory-service` → 401 |
-| D19.1 | 95–99 | `scripts\d19.1-test-timing.ps1` | `@WebMvcTest` vs `@SpringBootTest` untuk order-service |
-| D12.1 | 105–107 | demo-web `/d121/fast` (stall 2 s / 10 s), perintah di `StallFilter.java` | wrk closed: p99 7,8 ms · wrk2 `-R200 -c100`: p99.9 2,0 s |
+| D10.2 | 79, 82 | tokoku-lab ≥ `L11.1-solution` (mode dev, profil `security`; skrip memakai token alice dan order tanpa `customerId`) → `scripts\d10.2-breaker.ps1` + dashboard Resilience | CLOSED → OPEN (fail fast) → HALF_OPEN → CLOSED |
+| D10.3 | 81 | order-service dengan `--tokoku.payments.gateway-delay=500ms` → `scripts\d10.3-idempotency.ps1` | Key sama → replay · payload beda → 422 · 5 paralel → 201 + 4× 409, satu payment |
+| D11.1 | 87–89 | `scripts\d11-tokens.ps1` | Token alice (PKCE) vs `tokoku-loadtest`: `sub`, `aud`, `scope`, `exp` |
+| D11.3 | 89 | `scripts\d11-tokens.ps1` (bagian akhir) | Token `aud=inventory-service` → 401 |
+| D19.1 | 96–100 | `scripts\d19.1-test-timing.ps1` | `@WebMvcTest` vs `@SpringBootTest` untuk order-service |
+| D12.1 | 106–108 | demo-web `/d121/fast` (stall 2 s / 10 s), perintah di `StallFilter.java` | wrk closed: p99 7,8 ms · wrk2 `-R200 -c100`: p99.9 2,0 s |
 
 > D12.1: wrk2 butuh koneksi cukup (`-Connections 100`). Dengan 20 koneksi, p99 melonjak ke belasan detik karena
 > antrean per koneksi (artefak alat, bukan aplikasi).
@@ -87,25 +87,25 @@ D13.1 & D13.3 → L13.1, D21.2 → L21.1.
 
 | ID | Slide | Cara menjalankan | Momen kunci |
 |---|---|---|---|
-| D12.2 | 108 | `scripts\d12.2-diagnose.ps1` → `out\` | JFR: hot method `DiagnosticsController.hot` · thread dump JSON · heap dump 250 MiB: dominator `SESSION_SNAPSHOTS` |
-| D13.2 | 117 | `scripts\d13.2-oom.ps1` | `-Xmx1g` di limit 1 GiB: OOMKilled, exit 137, tanpa pesan · `MaxRAMPercentage=70`: OutOfMemoryError bersih, exit 3 |
-| D14.1 | 122 | demo-jpa profil `vt`, perintah di `PoolBottleneckController.java` | 300 rps ke query 100 ms, pool 10: tercapai 97 rps, pending 90 |
-| D14.2 | 124–125 | `scripts\d14.2-graceful.ps1` | `stop -t 40`: request 20 s selesai · timeout Spring 5 s: terpotong · `stop` tanpa `-t`: SIGKILL (exit 137) |
-| D15.1 | 127–128 | demo-jpa `/d151/join-fetch?page=1&size=5` (`&variant=left`, `&variant=filtered`) | **Hibernate 7.4: lihat catatan** |
+| D12.2 | 109 | `scripts\d12.2-diagnose.ps1` → `out\` | JFR: hot method `DiagnosticsController.hot` · thread dump JSON · heap dump 250 MiB: dominator `SESSION_SNAPSHOTS` |
+| D13.2 | 118 | `scripts\d13.2-oom.ps1` | `-Xmx1g` di limit 1 GiB: OOMKilled, exit 137, tanpa pesan · `MaxRAMPercentage=70`: OutOfMemoryError bersih, exit 3 |
+| D14.1 | 123 | demo-jpa profil `vt`, perintah di `PoolBottleneckController.java` | 300 rps ke query 100 ms, pool 10: tercapai 97 rps, pending 90 |
+| D14.2 | 125–126 | `scripts\d14.2-graceful.ps1` | `stop -t 40`: request 20 s selesai · timeout Spring 5 s: terpotong · `stop` tanpa `-t`: SIGKILL (exit 137) |
+| D15.1 | 128–129 | demo-jpa `/d151/join-fetch?page=1&size=5` (`&variant=left`, `&variant=filtered`) | **Hibernate 7.4: lihat catatan** |
 
 > D14.2: dokumentasi Docker menyebut default `docker stop` 10 s; di Docker Engine 29.9 laptop instruktur terukur 3,3 s.
 >
 > D15.1: Hibernate 7.4 **tidak lagi** memotong halaman di memori untuk `JOIN FETCH` + `Pageable`. Query ditulis ulang
 > menjadi subquery dengan paging di SQL, sehingga `fail_on_pagination_over_collection_fetch` tidak terpicu. Varian
 > `filtered` (filter pada collection yang di-fetch) menghasilkan **SQL error** (`missing FROM-clause entry`). Pesan slide
-> tetap: fetch plan per use case; pola dua tahap dapat diprediksi. Slide 127–128 perlu diperbarui.
+> tetap: fetch plan per use case; pola dua tahap dapat diprediksi. Slide 128–129 (deck v5) sudah memuat perilaku ini.
 
 ### Hari 6
 
 | ID | Slide | Cara menjalankan | Momen kunci |
 |---|---|---|---|
-| D16.1 | 137–138 | demo-web `/d161/sequential` vs `/d161/parallel` | 931 ms vs 307 ms |
-| D16.2 | 139 | demo-web `/d162/products/1` + `If-None-Match` | 304 tanpa body |
-| D17.1 | 142–143 | demo-web `/d171/expire/1` vs `/d171/refresh/1` (wrk2 100 rps); profil `refresh-no-loader` | expire: p99 500 ms · refresh: p99 3,9 ms · tanpa `CacheLoader`: *refreshAfterWrite requires a LoadingCache* |
-| D20.2 | 150–152 | mode perf dengan observability (tag `final` / capstone) + beban → `scripts\d20.2-exemplar.ps1` | p99 → exemplar → trace (span terlama) → log dengan trace ID yang sama |
-| D21.1 | 154 | tokoku-lab `L21.1-solution`, image `product-service:1.0` → `scripts\d21.1-liveness-db.ps1` | Liveness memeriksa DB: CrashLoopBackOff · benar: 0/1, 0 restart |
+| D16.1 | 138–139 | demo-web `/d161/sequential` vs `/d161/parallel` | 931 ms vs 307 ms |
+| D16.2 | 140 | demo-web `/d162/products/1` + `If-None-Match` | 304 tanpa body |
+| D17.1 | 143–144 | demo-web `/d171/expire/1` vs `/d171/refresh/1` (wrk2 100 rps); profil `refresh-no-loader` | expire: p99 500 ms · refresh: p99 3,9 ms · tanpa `CacheLoader`: *refreshAfterWrite requires a LoadingCache* |
+| D20.2 | 147–150 | mode perf dengan observability (tag `final` / capstone) + beban → `scripts\d20.2-exemplar.ps1` | p99 → exemplar → trace (span terlama) → log dengan trace ID yang sama |
+| D21.1 | 156 | tokoku-lab `L21.1-solution`, image `product-service:1.0` → `scripts\d21.1-liveness-db.ps1` | Liveness memeriksa DB: CrashLoopBackOff · benar: 0/1, 0 restart |

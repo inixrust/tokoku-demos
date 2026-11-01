@@ -1,6 +1,6 @@
 <#
 .SYNOPSIS
-  D21.1 (slide 154): liveness yang memeriksa DB -> DB mati -> restart massal (CrashLoopBackOff).
+  D21.1 (slide 156): liveness yang memeriksa DB -> DB mati -> restart massal (CrashLoopBackOff).
   Bandingkan dengan konfigurasi benar (L21.1-solution): readiness turun, 0 restart.
 .DESCRIPTION
   Prasyarat: tokoku-lab L21.1-solution, image product-service:1.0, kubectl context docker-desktop,

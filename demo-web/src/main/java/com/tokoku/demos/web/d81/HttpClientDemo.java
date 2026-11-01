@@ -10,7 +10,7 @@ import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.client.RestClient;
 
 /**
- * D8.1 (slide 63): RestClient.create() buatan sendiri vs builder yang di-inject Spring, ke downstream lambat (30 s).
+ * D8.1 (slide 51): RestClient.create() buatan sendiri vs builder yang di-inject Spring, ke downstream lambat (30 s).
  * <pre>
  * Measure-Command { curl.exe -s "localhost:8090/d81/builder" }   # gagal ±2 s (spring.http.clients.read-timeout)
  * Measure-Command { curl.exe -s "localhost:8090/d81/create" }    # menggantung 30 s: tanpa timeout

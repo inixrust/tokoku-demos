@@ -5,7 +5,7 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 /**
- * D14.1 (slide 122): virtual thread memindahkan bottleneck ke connection pool.
+ * D14.1 (slide 123): virtual thread memindahkan bottleneck ke connection pool.
  * <pre>
  * java -jar demo-jpa.jar --spring.profiles.active=vt
  * .\loadtest\wrk2\run.ps1 -Rate 300 -Duration 30s -Connections 100 -Url http://host.docker.internal:8095/d141/query

@@ -11,7 +11,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
 /**
- * D12.2 (slide 108): bahan JFR (hot method, alokasi), thread dump JSON, dan heap dump (leak).
+ * D12.2 (slide 109): bahan JFR (hot method, alokasi), thread dump JSON, dan heap dump (leak).
  * Lihat scripts/d12.2-diagnose.ps1.
  */
 @RestController
